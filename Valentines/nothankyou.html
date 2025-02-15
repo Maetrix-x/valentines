@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <title> Be My Valentine! </title>
+<head>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <audio id="sad" src="sadviolin.mp3"></audio>
+    <h1> Are you sure? 🥺 </h1>
+    <h2> Let me ask you one more time. </h2>
+    <h3> Be my valentine....please...?</h3>
+    <img src="sadcat.jpg" style="width: 600px;">
+    <div class="container">
+        <a href="yes.html">
+        <button class="heart-button"><span>Yes</span> </button>
+        </a>
+        <button class="heart-button" id="noButton" onclick="why()"> <span>NO!!</span></button>
+        </a>
+    </div>
+
+    <script>
+    
+    let noButton = document.getElementById("noButton");
+
+    noButton.addEventListener("mouseenter", () => {
+        moveButtonRandomly(); // Move the button to a random position when the mouse enters
+    });
+    
+    function why(){
+        let sound = document.getElementById("sad");
+        sound.play()
+    }
+    function moveButtonRandomly() {
+        let windowWidth = window.innerWidth;  // Get the window width
+        let windowHeight = window.innerHeight;  // Get the window height
+
+        // Random position for the button
+        let randomX = Math.random() * (windowWidth - noButton.offsetWidth); // Avoid overflow on the right
+        let randomY = Math.random() * (windowHeight - noButton.offsetHeight); // Avoid overflow at the bottom
+
+        // Set the button's new position
+        noButton.style.position="absolute";
+        noButton.style.left = randomX + "px";
+        noButton.style.top = randomY + "px";
+    }
+    </script>
+    
+</body>
+</html>

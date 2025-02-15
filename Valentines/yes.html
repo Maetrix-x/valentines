@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <title> Be My Valentine! </title>
+<head>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <audio id="wow" src="WOW.mp3"></audio>
+    <h1> Hooray! I'm the luckiest person alive! </h1>
+    <br><br><br>
+    <img src= "happyhappyhappy.gif">
+    <div class="container">
+    <button class="heart-button"  onclick="startPetals()" style="font-size: 20px"> 
+        <span style="top: -10px; left: 13px">
+            Click for<br>
+            a surprise
+        </span>
+    </button>
+    </div>
+
+    <script>
+        function startPetals() {
+            let sound=document.getElementById("wow");
+            sound.play();
+            for (let i = 0; i < 20; i++) { 
+                createPetal();
+            }
+        }
+
+        function createPetal() {
+            let petal = document.createElement("div");
+            petal.classList.add("petal");
+
+            let size = Math.random() * 10 + 10;
+            petal.style.width = size + "px";
+            petal.style.height = size + "px";
+
+            petal.style.left = Math.random() * window.innerWidth + "px";
+            petal.style.top = "0px";
+            petal.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            petal.style.animationDelay = Math.random() * 2 + "s";
+
+            document.body.appendChild(petal);
+
+            setTimeout(() => {
+                petal.remove();
+            }, 5000); // Remove after animation ends
+        }
+    </script>
+</body>
+</html>
