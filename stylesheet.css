@@ -1,0 +1,79 @@
+h1 {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+}
+
+h2 {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+h3 {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: rgb(255, 208, 238);
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;  /* centers buttons horizontally */
+    align-items: center;      /* centers buttons vertically */
+    gap: 20px;       /* ensures full viewport height to allow vertical centering */
+}
+
+img{
+    margin-bottom: 10px
+}
+
+.heart-button {
+    width: 200px;
+    height: 200px;
+    background: url('heartbutton.png') no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+    border: 2px;
+    font-size: 30px;
+    color: rgb(128, 0, 32);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;  /* centers text horizontally inside button */
+    align-items: center;      /* centers text vertically inside button */
+    text-align: center;       /* ensures the text is centered */
+    padding: 0;               /* ensures no extra space around the text */
+}
+
+.heart-button span{
+    position: relative;
+    word-wrap: break-word;
+    top: -8px;
+    left: 5px
+}
+
+.petal {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(255, 116, 139);
+    border-radius: 50%;
+    opacity: 1;
+    z-index: 9999;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
